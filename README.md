@@ -2,32 +2,60 @@
 InnovateX Hackathon Project
 
 
-Day 1:
-## Frontend Setup (React + Vite)
--Initialized a React + TypeScript frontend using Vite
--Shadcn UI Setup
-Configured path alias (@/) correctly in:
-tsconfig.json
-tsconfig.app.json
-vite.config.ts
-Installed Shadcn UI
-Added core UI components:
-Button
-Card
-Input
-Badge
-Verified everything renders correctly
--Routing Setup (React Router)
--Branding & UI Polish
- Background Design
+# Day 1 – Project Setup & Initial AI Integration
 
- 
- ## Backend Progress (AI Integration)
-- Installed required backend packages  
-- Set up and started the server  
-- Integrated AI with a structured prompt  
-- Created a dedicated AI API endpoint  
-- Tested the endpoint successfully using Postman
+## Overview
+Day 1 focused on establishing a solid foundation for both the frontend and backend. The goal was to set up the core tech stack, ensure UI consistency, and integrate the AI layer with a working API endpoint.
+
+---
+
+## 🎨 Frontend Setup (React + Vite)
+
+### Project Initialization
+- Initialized a **React + TypeScript** project using **Vite**
+- Verified development server and build configuration
+
+### UI Library Setup (shadcn/ui)
+- Installed and configured **shadcn/ui**
+- Configured path alias (`@/`) across:
+  - `tsconfig.json`
+  - `tsconfig.app.json`
+  - `vite.config.ts`
+- Added and verified core UI components:
+  - `Button`
+  - `Card`
+  - `Input`
+  - `Badge`
+
+### Routing
+- Set up **React Router**
+- Created a base routing structure for future pages
+
+### Branding & UI Polish
+- Applied initial branding decisions
+- Implemented background design for a clean, modern UI using AI
+
+---
+
+## 🧠 Backend Progress (AI Integration)
+
+### Server Setup
+- Installed required backend dependencies
+- Initialized and started the backend server successfully
+
+### AI Integration
+- Designed a structured AI prompt
+- Created a dedicated AI API endpoint
+- Integrated AI logic into the backend
+- Tested the AI endpoint successfully using **Postman**
+
+---
+
+## ✅ End of Day Status
+- Frontend foundation established
+- UI system configured and rendering correctly
+- Backend server running
+- AI integration functional and tested
 
 Total Time Spent on day 1 is 5.5 hours
 
