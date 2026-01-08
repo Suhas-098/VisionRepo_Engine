@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+}
+
+model Repository {
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  name           String
+  techStack      String[]
+  lastScannedAt  DateTime?
+  healthScore    Int
+  riskLevel      RiskLevel
+  analysis       Analysis[]
+}
+
+model Analysis {
+  id              String     @id @default(auto()) @map("_id") @db.ObjectId
+  repositoryId    String     @db.ObjectId
+  repository      Repository @relation(fields: [repositoryId], references: [id])
+  totalIssues     Int
+  criticalIssues  Int
+  performanceRisk Int
+}
+
+enum RiskLevel {
+  healthy
+  warning
+  critical
+}
