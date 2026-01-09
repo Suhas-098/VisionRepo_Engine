@@ -102,4 +102,84 @@ Implemented core service functions:
 Total Time Spent on day 2 is 4 hours
 
 
+Day 3: Backend Stabilization & API Debugging
+Backend & Environment Recovery
+
+Faced unexpected backend breakage due to Node.js reinstallation
+
+Switched to Node.js v20 (LTS) to restore a stable runtime environment
+
+Reinstalled dependencies to align with the new Node version
+
+Prisma & Database Fixes
+
+Encountered Prisma client initialization failures
+
+Identified issues caused by:
+
+Missing url in schema.prisma
+
+Incorrect usage of prisma.config.ts
+
+Removed prisma.config.ts and used schema.prisma as the single source of truth
+
+Downgraded Prisma to v5.22.0 (stable)
+
+Successfully regenerated Prisma Client
+
+Verified MongoDB connection and database access
+
+Express Routing & Middleware Debugging
+
+Fixed route conflicts where generic /api routes intercepted /api/dashboard routes
+
+Reordered route registration to ensure specific routes are mounted before generic ones
+
+Resolved hanging requests caused by middleware not calling next() or returning a response
+
+Dashboard APIs (Working & Verified)
+
+Implemented and tested:
+
+GET /api/dashboard/metrics
+
+GET /api/dashboard/repositories
+
+Confirmed end-to-end flow:
+
+Express → Controller → Service → Prisma → MongoDB
+
+Successfully tested APIs using browser and Postman
+
+Analyze Endpoint (/api/analyze)
+
+Endpoint wiring and request validation implemented
+
+Request reaches controller and service correctly
+
+Encountered 500 errors originating from Gemini AI integration after environment reset
+
+Issue identified as AI model / environment sensitivity, not routing or backend logic
+
+What Was Fixed Today
+
+Node.js version stabilized (v20 LTS)
+
+Prisma configuration and client generation fixed
+
+Express routing and middleware issues resolved
+
+Dashboard APIs fully operational and tested
+
+What Needs to Be Fixed Next
+
+Finalize stable Gemini AI model selection
+
+Improve defensive JSON parsing for AI responses
+
+Enhance error transparency for /api/analyze
+
+Total Time Spent on day 3 is 6 hours
+
+
 
