@@ -1,22 +1,19 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.png";
+import { Logo } from "@/components/Logo";
 
 export default function Navbar() {
     return (
         // <nav className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md">
         //     <div className="container mx-auto flex h-20 items-center justify-between px-6 md:px-12">
-        <nav className="bg-gradient-to-r from-indigo-600 via-purple-400 to-purple-600 text-black">
+        <nav className="bg-gradient-to-r from-indigo-200 via-purple-200 to-purple-200 text-black">
             <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-4">
                 {/* Logo + Name */}
                 <Link to="/" className="flex items-center gap-3 transition-opacity hover:opacity-80">
-                    <img
-                        src={logo}
-                        alt="Vision Repo Engine Logo"
-                        className="h-16 w-16 object-contain"
-                    />
+                    <Logo className="h-10 w-10 text-primary" />
                     <span className="text-xl font-heading font-bold tracking-tight">
-                        Vision Repo <span className="text-primary">Engine</span>
+                        VisionRepo
+                        <span className="text-primary">• Engine</span>
                     </span>
                 </Link>
 
