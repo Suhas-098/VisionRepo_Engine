@@ -108,5 +108,6 @@ export const analyzeSystemArchitecture = async (
     } catch (error) {
         console.error("Gemini Analysis Error:", error);
         throw error;
+
     }
 };
