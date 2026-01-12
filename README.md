@@ -152,4 +152,122 @@ Total Time Spent on day 2 is 4 hours
 Total Time Spent on day 3 is 6 hours
 
 
+📅 Day 4 – Backend Stabilization & Frontend Integration
+📌 Overview
+
+Day 4 focused on stabilizing the backend, validating API contracts, and connecting the frontend with live backend data.
+This day marks the transition from isolated backend development to a fully wired full-stack flow.
+
+✅ Achievements
+🔧 Backend
+
+Backend stabilized and running reliably on Node.js v20
+
+Database integrated using Prisma v5.22.0 + MongoDB
+
+Core APIs verified using Postman
+
+AI analysis endpoint integrated with Gemini (stable)
+
+Implemented API Endpoints:
+
+GET /api/dashboard/metrics
+
+Returns aggregated dashboard statistics:
+
+Total repositories
+
+Total analyses
+
+Total issues
+
+Average health score
+
+POST /api/analyze
+
+Accepts repository metadata
+
+Performs AI-based analysis
+
+Designed to persist results for dashboard aggregation
+
+🎨 Frontend
+
+Frontend running on Vite + React (localhost:5173)
+
+Successfully connected frontend to backend APIs
+
+Implemented a central API client for clean data fetching
+
+Dashboard page now consumes real backend data
+
+Debug JSON rendering replaced with structured UI components
+
+🔄 Key Learning Outcomes
+
+Clear separation of concerns between:
+
+Backend aggregation logic
+
+Frontend rendering logic
+
+Importance of API response contracts
+
+Debug-first approach:
+
+Validate APIs in Postman
+
+Then integrate with frontend
+
+Handling empty states correctly (zero data ≠ error)
+
+🧠 Problem Solved (Important)
+
+Issue:
+Frontend was showing “Something went wrong” despite APIs working.
+
+Root Cause:
+Frontend was calling an endpoint that returned empty data (/repositories) instead of the metrics endpoint (/metrics), causing rendering failures.
+
+Fix:
+
+Identified correct data source
+
+Updated frontend to consume /api/dashboard/metrics
+
+Ensured frontend parsing matched backend response shape
+
+📊 Current Dashboard State
+
+Since no repositories have been analyzed yet, the dashboard correctly displays:
+
+{
+  "totalRepositories": 0,
+  "totalAnalysis": 0,
+  "totalIssues": 0,
+  "averageHealthScore": 0
+}
+
+
+This confirms:
+
+End-to-end data flow is working
+
+System behaves correctly with empty data
+
+🏗️ Project Status After Day 4
+
+✅ Backend stable
+
+✅ Database connected and queried via Prisma
+
+✅ APIs tested and reliable
+
+✅ Frontend-backend integration complete
+
+✅ Ready for feature expansion
+
+Total Time Spent on day 4 is 4.5 hours
+
+
 
