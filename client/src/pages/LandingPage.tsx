@@ -1,7 +1,9 @@
 import { Github, Sparkles, BarChart3, ArrowRight, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 export default function Landing() {
+    const navigate = useNavigate();
     return (
         <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-indigo-100 selection:text-indigo-700">
 
@@ -31,13 +33,13 @@ export default function Landing() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Button className="h-12 px-8 text-base font-heading font-semibold tracking-wide bg-linear-to-r from-indigo-600 to-purple-600 hover:opacity-90 transition-all rounded-full shadow-lg shadow-indigo-500/25 ring-0 border-0">
+                        <Button onClick={() => navigate('/analyze')} className="h-12 px-8 text-base font-heading font-semibold tracking-wide bg-linear-to-r from-indigo-600 to-purple-600 hover:opacity-90 transition-all rounded-full shadow-lg shadow-indigo-500/25 ring-0 border-0">
                             Get Started Free
                             <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
-                        <Button variant="outline" className="h-12 px-8 text-base font-heading font-medium text-slate-700 hover:text-indigo-600 hover:bg-indigo-50 border-slate-200 rounded-full transition-all">
+                        <Button onClick={() => navigate('/dashboard')} variant="outline" className="h-12 px-8 text-base font-heading font-medium text-slate-700 hover:text-indigo-600 hover:bg-indigo-50 border-slate-200 rounded-full transition-all">
                             <Github className="mr-2 h-4 w-4" />
-                            View on GitHub
+                            Dashboard
                         </Button>
                     </div>
 

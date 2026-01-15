@@ -5,5 +5,20 @@
     "lucide-react": "^0.562.0",
     "react-dropzone": "^14.3.8",
     "tailwindcss": "^4.1.18"
+  },
+  "name": "visionrepo_engine",
+  "version": "1.0.0",
+  "description": "InnovateX Hackathon Project",
+  "main": "index.js",
+  "scripts": {
+    "client": "npm run dev --prefix client",
+    "server": "npm run dev --prefix server",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
   }
 }

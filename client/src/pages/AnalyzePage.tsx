@@ -3,21 +3,25 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Github, Sparkles } from "lucide-react";
-// import { useNavigate } from "react-router-dom";
+import { analyzeRepository } from "../api/analysis";
+import { useNavigate } from "react-router-dom";
 
 export default function Analyze() {
     const [repo, setRepo] = useState("");
     const [loading, setLoading] = useState(false);
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
-    const handleAnalyze = () => {
+    const handleAnalyze = async () => {
         if (!repo) return;
-        setLoading(true);
-
-        // mock AI delay
-        setTimeout(() => {
-            // navigate("/LandingPage");
-        }, 1500);
+        try {
+            setLoading(true);
+            await analyzeRepository(repo);
+            navigate("/dashboard");
+        } catch (err: any) {
+            alert(err.message || "Analysis failed");
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
