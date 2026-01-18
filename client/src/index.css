@@ -38,68 +38,72 @@
 }
 
 :root {
-  --radius: 0.75rem;
+  --radius: 0.5rem;
+  /* 8px as preferred for calm look (8-12px range) */
 
-  /* Light Mode Base */
-  --background: #ffffff;
-  --foreground: #0f172a;
-  /* Slate 900 */
+  /* Soft Blue / Modern SaaS Palette */
+  --background: #F8FAFC;
+  --foreground: #0F172A;
 
-  --card: #ffffff;
-  --card-foreground: #0f172a;
+  --card: #FFFFFF;
+  --card-foreground: #0F172A;
 
-  --popover: #ffffff;
-  --popover-foreground: #0f172a;
+  --popover: #FFFFFF;
+  --popover-foreground: #0F172A;
 
-  /* Indigo/Purple Primary */
-  --primary: #6366f1;
-  /* Indigo 500 */
-  --primary-foreground: #ffffff;
+  /* Primary Accent: #3B82F6 (Blue 500) */
+  --primary: #3B82F6;
+  --primary-foreground: #FFFFFF;
 
-  --secondary: #f8fafc;
-  /* Slate 50 */
-  --secondary-foreground: #0f172a;
+  /* Secondary Accent: #60A5FA (Blue 400) */
+  --secondary: #EFF6FF;
+  /* Blue 50 for background highlights */
+  --secondary-foreground: #1E40AF;
+  /* Blue 800 */
 
-  --muted: #f1f5f9;
+  --muted: #F1F5F9;
   /* Slate 100 */
-  --muted-foreground: #64748b;
+  --muted-foreground: #64748B;
   /* Slate 500 */
 
-  --accent: #eef2ff;
-  /* Indigo 50 */
-  --accent-foreground: #4338ca;
-  /* Indigo 700 */
+  --accent: #F1F5F9;
+  /* Slate 100 for hover states */
+  --accent-foreground: #0F172A;
 
-  --destructive: #ef4444;
-  --destructive-foreground: #ffffff;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
 
-  --border: #e2e8f0;
-  /* Slate 200 */
-  --input: #e2e8f0;
-  --ring: #6366f1;
+  --border: #E5E7EB;
+  /* Gray 200 */
+  --input: #E5E7EB;
+  --ring: #3B82F6;
 }
 
-/* Optional Dark Mode Overrides (if user wants to toggle, but default is light) */
+/* Forcing light mode primarily, but mapping dark mode to similar values or a graceful dark theme if needed.
+   However, strictly following the prompt means sticking to the palette.
+   I will map dark mode to the same values to enforce consistency if the user has system dark mode on.
+*/
 .dark {
-  --background: #020617;
-  --foreground: #f8fafc;
-  --card: #020617;
-  --card-foreground: #f8fafc;
-  --popover: #020617;
-  --popover-foreground: #f8fafc;
-  --primary: #818cf8;
-  --primary-foreground: #000000;
-  --secondary: #1e293b;
-  --secondary-foreground: #f8fafc;
-  --muted: #1e293b;
-  --muted-foreground: #94a3b8;
-  --accent: #1e293b;
-  --accent-foreground: #f8fafc;
-  --destructive: #7f1d1d;
-  --destructive-foreground: #f8fafc;
-  --border: #1e293b;
-  --input: #1e293b;
-  --ring: #818cf8;
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+  --card: #FFFFFF;
+  --card-foreground: #0F172A;
+  --popover: #FFFFFF;
+  --popover-foreground: #0F172A;
+  --primary: #3B82F6;
+  --primary-foreground: #FFFFFF;
+  --secondary: #EFF6FF;
+  --secondary-foreground: #1E40AF;
+  --muted: #F1F5F9;
+  --muted-foreground: #64748B;
+  --accent: #F1F5F9;
+  --accent-foreground: #0F172A;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #E5E7EB;
+  --input: #E5E7EB;
+  --ring: #3B82F6;
+
   /* Animations */
   --animate-fade-in-up: fade-in-up 0.5s ease-out forwards;
 

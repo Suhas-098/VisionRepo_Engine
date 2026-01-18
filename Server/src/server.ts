@@ -2,7 +2,6 @@ import express, { type Request, type Response } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import router from './routes/routes.js';
-import dashboardRouter from './routes/dashboard.routes.js';
 
 dotenv.config();
 
@@ -13,9 +12,6 @@ app.use(cors({
 }))
 
 app.use(express.json());
-
-//dashboard routes
-app.use("/api/dashboard", dashboardRouter);
 
 //analytics routes
 app.use("/api", router);

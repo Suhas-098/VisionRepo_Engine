@@ -1,20 +1,39 @@
 import express from "express";
+import { analyzeGitHubRepo } from "../models/github/github.service.js";
 import { analyzeSystemArchitecture } from "../models/gemini.js";
 
 const router = express.Router();
 
 router.post("/analyze", async (req, res) => {
     try {
-        const { repoName, fileTree, keyFiles } = req.body;
-        if (!repoName || !fileTree || !keyFiles) {
-            return res.status(400).json({ error: "repoName, fileTree, and keyFiles are required" });
+        const { repoUrl } = req.body;
+
+        if (!repoUrl) {
+            return res.status(400).json({
+                message: "repoUrl is required"
+            });
         }
 
-        const result = await analyzeSystemArchitecture({ repoName, fileTree, keyFiles });
-        res.json(result);
+        // gitHub analysis
+        const githubResult = await analyzeGitHubRepo(repoUrl);
+
+        // gemini analysis
+        const aiResult = await analyzeSystemArchitecture(githubResult);
+
+
+        res.json({
+            success: true,
+            data: {
+                ...githubResult,
+                ai: aiResult
+            }
+        });
+
     } catch (error) {
-        console.error("Error analyzing repo:", error);
-        res.status(500).json({ error: "Failed to analyze repo" });
+        console.error("Analyze error:", error);
+        res.status(500).json({
+            message: "Analysis failed"
+        });
     }
 });
 

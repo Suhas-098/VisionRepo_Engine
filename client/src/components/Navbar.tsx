@@ -4,29 +4,28 @@ import { Logo } from "@/components/Logo";
 
 export default function Navbar() {
     return (
-        // <nav className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md">
-        //     <div className="container mx-auto flex h-20 items-center justify-between px-6 md:px-12">
-        <nav className="bg-gradient-to-r from-indigo-200 via-purple-200 to-purple-200 text-black">
-            <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-4">
+        <nav className="sticky top-0 z-50 w-full
+      bg-[#F8FAFC]/95
+      backdrop-blur-md
+      border-b border-[#94A3B8]
+      ">
+
+
+
+            <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-8">
                 {/* Logo + Name */}
                 <Link to="/" className="flex items-center gap-3 transition-opacity hover:opacity-80">
-                    <Logo className="h-10 w-10 text-primary" />
-                    <span className="text-xl font-heading font-bold tracking-tight">
+                    <Logo className="h-9 w-9 text-primary" />
+                    <span className="text-xl font-heading font-bold tracking-tight text-foreground">
                         VisionRepo
-                        <span className="text-primary">• Engine</span>
+                        <span className="text-primary">.Engine</span>
                     </span>
                 </Link>
 
                 {/* Desktop Nav Actions */}
                 <div className="flex items-center gap-6">
-                    <div className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
-                        <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-                        <Link to="/features" className="hover:text-primary transition-colors">Features</Link>
-                        <Link to="/pricing" className="hover:text-primary transition-colors">Pricing</Link>
-                    </div>
-
                     <Link to="/analyze">
-                        <Button className="font-heading font-semibold tracking-wide bg-linear-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 hover:scale-[1.02] transition-all border-0 ring-0">
+                        <Button className="font-heading font-semibold tracking-wide bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 hover:shadow-md hover:scale-[1.01] transition-all border-0 ring-0 rounded-lg">
                             Analyze Repo
                         </Button>
                     </Link>

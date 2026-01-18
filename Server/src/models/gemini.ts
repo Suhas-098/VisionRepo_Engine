@@ -6,24 +6,38 @@ const ai = new GoogleGenAI({
     apiKey: process.env.GEMINI_API_KEY!,
 });
 
-type RepoAnalysisInput = {
-    repoName: string;
-    fileTree: string;
-    keyFiles: Record<string, string>;
+type GeminiInput = {
+    repoMeta: {
+        owner: string;
+        repo: string;
+        branch: string;
+        totalFiles: number;
+        analyzedFiles: number;
+    };
+    files: {
+        path: string;
+        content: string;
+    }[];
 };
 
+
 export const analyzeSystemArchitecture = async (
-    input: RepoAnalysisInput
+    input: GeminiInput
 ) => {
     try {
-        const { repoName, fileTree, keyFiles } = input;
+        const MAX_CHARS = 100_000;
+        let total = 0;
 
-        // ✅ FORMAT KEY FILES FOR LLM READABILITY
-        const formattedKeyFiles = Object.entries(keyFiles)
-            .map(
-                ([fileName, content]) =>
-                    `File: ${fileName}\n${content}`
-            )
+        const selectedFiles = [];
+
+        for (const file of input.files) {
+            if (total + file.content.length > MAX_CHARS) break;
+            selectedFiles.push(file);
+            total += file.content.length;
+        }
+
+        const formattedKeyFiles = selectedFiles
+            .map(f => `File: ${f.path}\n${f.content}`)
             .join("\n\n");
 
         const response = await ai.models.generateContent({
@@ -34,16 +48,10 @@ export const analyzeSystemArchitecture = async (
                     parts: [
                         {
                             text: `
-                    Repository Name:
-                    ${repoName}
+Repository:
+${input.repoMeta.owner}/${input.repoMeta.repo}
 
-                    File Tree:
-                    ${fileTree}
-
-                    Key Files:
-                    ${formattedKeyFiles}
-
-                    Analyze this repository as if you are onboarding a new developer.
+${formattedKeyFiles}
 `
                         }
                     ]
@@ -94,6 +102,7 @@ export const analyzeSystemArchitecture = async (
                     }
                     `
             }
+
         });
 
         const rawJson =
@@ -103,11 +112,10 @@ export const analyzeSystemArchitecture = async (
             throw new Error("No content returned from Gemini");
         }
 
-        // ✅ SAFE JSON PARSE
         return JSON.parse(rawJson);
     } catch (error) {
         console.error("Gemini Analysis Error:", error);
         throw error;
-
     }
 };
+
