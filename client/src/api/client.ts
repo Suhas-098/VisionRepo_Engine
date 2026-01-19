@@ -2,7 +2,7 @@ export async function apiClient<T>(
     endpoint: string,
     options: RequestInit = {}
 ): Promise<T> {
-    const response = await fetch(`http://localhost:3000${endpoint}`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}${endpoint}`, {
         headers: {
             "Content-Type": "application/json",
             ...options.headers,
