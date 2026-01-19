@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { analyzeGitHubRepo } from "../models/github/github.service.js";
-import { analyzeSystemArchitecture } from "../models/gemini.js";
+import { analyzeGitHubRepo } from "../src/models/github/github.service.js";
+import { analyzeSystemArchitecture } from "../src/models/gemini.js";
 
 export default async function handler(
     req: VercelRequest,
@@ -28,6 +28,7 @@ export default async function handler(
             }
         });
     } catch (error) {
+
         console.error("Analyze error:", error);
         return res.status(500).json({ message: "Analysis failed" });
     }
